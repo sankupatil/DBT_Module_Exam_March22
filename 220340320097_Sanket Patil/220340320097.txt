@@ -71,3 +71,49 @@ select ENAME, position('AR' in ENAME) from EMP_EX;
 Q.10-
 select ENAME, sal*0.20 as 'HRA' from EMP_EX;
 
+
+Section 2-
+
+Q.1- 
+create table TEMPP_EX
+(string1 varchar(25), string2 varchar(25), result varchar(25));
+
+
+delimiter //
+create procedure PROC1(string1 varchar(25), string2 varchar(25))
+begin
+		if instr(string2, string1) then
+			insert into TEMPP_EX value( string1, string2, 'Present');
+		else
+			insert into TEMPP_EX value( string1, string2, 'Not Present');
+		end if;
+end; //
+delimiter ;
+
+
+call PROC1('DAC', 'CDAC');
+
+select * from TEMPP_EX;
+
+
+Q.2-
+create table temp_ex1
+(a float, b float, c float, ans char(10));
+
+
+delimiter //
+create function FUNC1(a float, b float, c float)
+returns boolean
+deterministic
+begin
+	declare a float;
+	declare b float;
+	declare c float;
+		if a < (b+c) then
+			if b < (a+c) & c < (a+b) then
+            insert into 
+         
+        end if;
+end; //
+delimiter ;
+
